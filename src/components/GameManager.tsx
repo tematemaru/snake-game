@@ -3,16 +3,18 @@
 import React, { useEffect, useRef } from 'react';
 
 import { CANVAS_SIZE, KEYDOWN_EVENT } from '../common/constants';
+import { config } from '../core/game/config';
 import { useGameContext } from '../hooks/useGameContext';
 import { Score } from './Score';
 import { Color } from '../common/enums';
 import { drawEntity } from '../common/utils';
 import { Button } from './Button';
-import { useSocketListeners } from '../hooks/useSocketListeners';
+// import { useSocketListeners } from '../hooks/useSocketListeners';
 import { MobileButtons } from './MobileButtons';
+import { CanvasRenderer } from './CanvasRenderer';
 
 const GameManager: React.FC = () => {
-  useSocketListeners();
+  // useSocketListeners();
   const {
     players,
     food,
@@ -56,8 +58,7 @@ const GameManager: React.FC = () => {
   return (
     <>
       <Score />
-      <canvas ref={canvasRef} width={CANVAS_SIZE} height={CANVAS_SIZE} className="outline-dashed" />
-
+      <CanvasRenderer width={config.FIELD_WIDTH} height={config.FIELD_HEIGHT} />
       <MobileButtons />
       <div>
         <Button className="px-[2.2rem]" onClick={onBackClick}>

@@ -3,7 +3,7 @@
 import type { Socket, ServerOptions } from 'socket.io';
 import { Server as SocketIoServer } from 'socket.io';
 import { SocketMessage } from '../common/enums';
-import { GameLogicService } from '../core/game/gameLogic.service';
+// import { GameLogicService } from '../core/game/gameLogic.service';
 import { logger } from '../common/utils';
 
 export class SocketGateway extends SocketIoServer {

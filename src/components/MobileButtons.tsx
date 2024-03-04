@@ -1,15 +1,15 @@
 'use client';
 
-import React, { useCallback, useEffect, useState } from 'react';
-import { Direction, SocketMessage } from '../common/enums';
+import React, { useEffect, useState } from 'react';
+import { Direction } from '../common/enums';
 import { Button } from './Button';
-import { DIRECTION_KEYS } from '../common/constants';
-import { useSocket } from '../hooks/useSocket';
-import { swap } from '../common/utils';
-import { useGameContext } from '../hooks/useGameContext';
+// import { DIRECTION_KEYS } from '../common/constants';
+// import { useSocket } from '../hooks/useSocket';
+// import { swap } from '../common/utils';
+// import { useGameContext } from '../hooks/useGameContext';
 
 export const MobileButtons = () => {
-  const socket = useSocket();
+  // const socket = useSocket();
   // const { player } = useGameContext();
   const [isMobile, setMobile] = useState<RegExpMatchArray>(null);
 

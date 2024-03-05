@@ -21,11 +21,6 @@ export const useGameLogic = (): GameContextProps => {
     [searchParams],
   );
 
-  const updateCtx = useCallback((data: Pick<GameContextProps, 'food' | 'players'>) => {
-    setFood(data.food);
-    setPlayers(data.players);
-  }, []);
-
   const onBackClick = useCallback(() => {
     // socket.disconnect();
     setPlayers(null);
@@ -34,6 +29,6 @@ export const useGameLogic = (): GameContextProps => {
   }, [router]);
 
   return {
-    players, food, handleKeyPress, updateCtx, onBackClick,
+    players, food, handleKeyPress, onBackClick,
   };
 };

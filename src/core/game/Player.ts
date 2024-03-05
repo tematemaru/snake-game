@@ -23,13 +23,23 @@ export class Player implements GameObject {
     this.maxLength = this.body.length;
   }
 
+  reset = () => {
+    this.position = {
+      x: 0, y: 0,
+    };
+    this.direction = undefined;
+    this.body = [
+      new Cell({ x: this.position.x, y: this.position.y }, config.CELL_SIZE, 'rgb(0, 255, 0)'),
+    ];
+    this.maxLength = this.body.length;
+  };
+
   getHeadPosition = (): Coordinate | null => {
     if (this.body.length === 0) return null;
     return this.body[0].position;
   };
 
   setDirection = (newDirection: DIRECTIONS) => {
-    // Add game ending if new direction become negative
     if (this.direction === DIRECTIONS.TOP && newDirection === DIRECTIONS.BOTTOM) {
       return;
     }
@@ -132,10 +142,11 @@ export class Player implements GameObject {
     }
 
     const headPositin = this.body[0].position;
+
     for (let i = 1; i < this.body.length; i += 1) {
       const cheinPosition = this.body[i].position;
       if (cheinPosition.x === headPositin.x && cheinPosition.y === headPositin.y) {
-        console.log('end game');
+        this.reset();
       }
     }
   };

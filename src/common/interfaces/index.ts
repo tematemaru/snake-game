@@ -21,7 +21,6 @@ export interface PlayerEntity {
 export interface GameContextProps {
     players: PlayerEntity[];
     food: FoodEntity;
-    updateCtx: (data: Partial<GameContextProps>) => void;
     handleKeyPress: (e: KeyboardEvent) => void;
     onBackClick: () => void;
 }
